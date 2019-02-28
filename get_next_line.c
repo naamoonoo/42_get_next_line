@@ -21,17 +21,22 @@ static void ft_concat(char **str, char *buf, int r)
 	*str = temp;
 }
 
-int	get_next_line(const int fd, char **line)
+static void first_setting(char **str)
+{
+	if (!*str)
+		*str = ft_strnew(0);
+}
+
+int			get_next_line(const int fd, char **line)
 {
 	static char	*str[MAX_SIZE];
 	char		buf[BUFF_SIZE + 1];
 	int			r;
 	int			i;
 
-	if (!line || fd < 0) 
+	if (!line || fd < 0)
 		return (-1);
-	if (!str[fd]) 
-		str[fd] = ft_strnew(0);
+	first_setting(&str[fd]);
 	while ((r = read(fd, buf, BUFF_SIZE)) > 0 || *str[fd])
 	{
 		ft_concat(&str[fd], buf, r);
