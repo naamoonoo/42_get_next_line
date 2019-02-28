@@ -21,6 +21,6 @@
 # define BUFF_SIZE 32
 # define MAX_SIZE 10000
 
-int		get_next_line	(const int fd, char **line);
+int get_next_line(const int fd, char **line);
 
 #endif
