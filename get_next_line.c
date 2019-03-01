@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hnam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/01 12:16:51 by hnam              #+#    #+#             */
+/*   Updated: 2019/03/01 12:16:52 by hnam             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int	next_line_idx(char *str)
+int		next_line_idx(char *str)
 {
 	int i;
 
@@ -11,7 +23,7 @@ int	next_line_idx(char *str)
 	return (-1);
 }
 
-void ft_concat(char **str, char *buf, int r)
+void	ft_concat(char **str, char *buf, int r)
 {
 	char *temp;
 
@@ -21,13 +33,13 @@ void ft_concat(char **str, char *buf, int r)
 	*str = temp;
 }
 
-void first_setting(char **str)
+void	first_setting(char **str)
 {
 	if (!*str)
 		*str = ft_strnew(0);
 }
 
-int			get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
 	static char	*str[MAX_SIZE];
 	char		buf[BUFF_SIZE + 1];

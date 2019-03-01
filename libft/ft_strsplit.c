@@ -38,25 +38,23 @@ char		**ft_strsplit(char const *s, char c)
 	int				start;
 	char			**res;
 
-	if (s)
+	if (!s)
+		return (NULL);
+	if (!(res = make_array(s, c)))
+		return (NULL);
+	start = 0;
+	i = 0;
+	len = 0;
+	while (s[i] && s[i + 1])
 	{
-		if (!(res = make_array(s, c)))
-			return (NULL);
-		start = 0;
-		i = 0;
-		len = 0;
-		while (s[i] && s[i + 1])
-		{
-			if (s[i] == c && s[i + 1] != c)
-				start = i + 1;
-			if (s[i] != c && s[i + 1] == c)
-				res[len++] = ft_strsub(s, start, i - start + 1);
-			if (i + 2 == ft_strlen(s) && s[i + 1] != c)
-				res[len++] = ft_strsub(s, start, i - start + 2);
-			i++;
-		}
-		res[len] = ((void *)0);
-		return (res);
+		if (s[i] == c && s[i + 1] != c)
+			start = i + 1;
+		if (s[i] != c && s[i + 1] == c)
+			res[len++] = ft_strsub(s, start, i - start + 1);
+		if (i + 2 == ft_strlen(s) && s[i + 1] != c)
+			res[len++] = ft_strsub(s, start, i - start + 2);
+		i++;
 	}
-	return (NULL);
+	res[len] = ((void *)0);
+	return (res);
 }

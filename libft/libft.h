@@ -24,14 +24,14 @@ typedef struct		s_list
 }					t_list;
 
 /*
-	macro
+**---------------------macro---------------------
 */
 
 # define ABS(x) (x * -1)
 # define MAX_INT -2147483648
 
 /*
-	memory handling
+**---------------------memory handling---------------------
 */
 
 void				*ft_memset(void *b, int i, size_t len);
@@ -45,7 +45,7 @@ void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 
 /*
-	string descriptor
+**---------------------string descriptor---------------------
 */
 
 size_t				ft_strlen(const char *s);
@@ -83,7 +83,7 @@ void				ft_ulstr(char c);
 int					ft_hidenp(char *s1, char *s2);
 
 /*
-	number descriptor
+**---------------------number descriptor---------------------
 */
 
 void				ft_putnbr(int n);
@@ -93,7 +93,7 @@ int					ft_pow(int times);
 int					ft_pgcd(int a, int b);
 
 /*
-	checking
+**---------------------checking---------------------
 */
 
 int					ft_isalpha(int c);
@@ -106,7 +106,7 @@ int					ft_tolower(int c);
 int					ft_is_space(char c);
 
 /*
-	file descriptor
+**---------------------file descriptor---------------------
 */
 
 void				ft_putchar_fd(char c, int fd);
@@ -115,7 +115,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 /*
-	list handling
+**---------------------list handling---------------------
 */
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
