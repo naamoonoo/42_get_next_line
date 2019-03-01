@@ -5,9 +5,8 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-# include <stdio.h>
 # define BUFF_SIZE 32
-# define MAX_SIZE 10000
+# define MAX_SIZE 4864
 
 int get_next_line(const int fd, char **line);
 
