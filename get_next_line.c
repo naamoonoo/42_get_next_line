@@ -1,6 +1,6 @@
 #include "get_next_line.h"
 
-static int	next_line_idx(char *str)
+int	next_line_idx(char *str)
 {
 	int i;
 
@@ -11,7 +11,7 @@ static int	next_line_idx(char *str)
 	return (-1);
 }
 
-static void ft_concat(char **str, char *buf, int r)
+void ft_concat(char **str, char *buf, int r)
 {
 	char *temp;
 
@@ -21,7 +21,7 @@ static void ft_concat(char **str, char *buf, int r)
 	*str = temp;
 }
 
-static void first_setting(char **str)
+void first_setting(char **str)
 {
 	if (!*str)
 		*str = ft_strnew(0);
