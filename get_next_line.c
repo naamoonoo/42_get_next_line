@@ -36,17 +36,17 @@ void	ft_concat(char **str, char *buf, int r)
 void	first_setting(char **str)
 {
 	if (!*str)
-		*str = ft_strnew(0);
+		*str = ft_strnew(1);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	static char	*str[MAX_SIZE];
+	static char	*str[MAX_FD] = { 0 };
 	char		buf[BUFF_SIZE + 1];
 	int			r;
 	int			i;
 
-	if (!line || fd < 0)
+	if (!line || (fd < 0 || fd >= MAX_FD) || (read(fd, str[fd], 0) < 0))
 		return (-1);
 	first_setting(&str[fd]);
 	while ((r = read(fd, buf, BUFF_SIZE)) > 0 || *str[fd])
@@ -58,7 +58,7 @@ int		get_next_line(const int fd, char **line)
 			ft_memmove(str[fd], &str[fd][i + 1], ft_strlen(str[fd]) - i);
 			return (1);
 		}
-		else if (r != BUFF_SIZE)
+		if (r != BUFF_SIZE)
 		{
 			*line = ft_strdup(str[fd]);
 			ft_strdel(&str[fd]);

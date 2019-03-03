@@ -18,7 +18,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # define BUFF_SIZE 32
-# define MAX_SIZE 4864
+# define MAX_FD 10000
 
 int		next_line_idx(char *str);
 void	ft_concat(char **str, char *buf, int r);
