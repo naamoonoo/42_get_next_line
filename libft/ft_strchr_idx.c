@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 12:16:57 by hnam              #+#    #+#             */
-/*   Updated: 2019/03/01 12:16:58 by hnam             ###   ########.fr       */
+/*   Created: 2019/02/21 17:06:00 by hnam              #+#    #+#             */
+/*   Updated: 2019/02/21 17:06:01 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# define BUFF_SIZE 32
-# define MAX_FD 10000
+int	ft_strchr_idx(const char *s, int c)
+{
+	int i;
+	int len;
 
-void	ft_concat(char **str, char *buf, int r);
-void	first_setting(char **str);
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = -1;
+	len = ft_strlen(s);
+	if ((char)c == '\0')
+		return (0);
+	while (s[++i])
+		if (s[i] == (char)c)
+			return (i);
+	return (-1);
+}

@@ -12,17 +12,6 @@
 
 #include "get_next_line.h"
 
-int		next_line_idx(char *str)
-{
-	int i;
-
-	i = -1;
-	while (str[++i])
-		if (str[i] == '\n')
-			return (i);
-	return (-1);
-}
-
 void	ft_concat(char **str, char *buf, int r)
 {
 	char *temp;
@@ -52,7 +41,7 @@ int		get_next_line(const int fd, char **line)
 	while ((r = read(fd, buf, BUFF_SIZE)) > 0 || *str[fd])
 	{
 		ft_concat(&str[fd], buf, r);
-		if ((i = next_line_idx(str[fd])) >= 0)
+		if ((i = ft_strchr_idx(str[fd], '\n')) >= 0)
 		{
 			*line = ft_strsub(str[fd], 0, i);
 			ft_memmove(str[fd], &str[fd][i + 1], ft_strlen(str[fd]) - i);

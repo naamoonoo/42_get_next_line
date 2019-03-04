@@ -81,6 +81,8 @@ void				ft_putendl(char const *s);
 int					ft_start_idx(char const *s);
 void				ft_ulstr(char c);
 int					ft_hidenp(char *s1, char *s2);
+int					ft_strchr_idx(const char *s, int c);
+
 
 /*
 **---------------------number descriptor---------------------
